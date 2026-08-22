@@ -1,0 +1,87 @@
+# OpenVPN3 Manager — control OpenVPN 3 Linux sessions from the bar.
+#
+# The openvpn3 shell-outs all live in the headless [[service]], which polls the
+# session manager and publishes a "status" snapshot. The bar [[widget]], the
+# control-center [[shortcut]] and the [[panel]] are thin clients: they mirror
+# "status" and drive the service through the "command" channel, so a connection
+# can be toggled even with no widget placed on a bar.
+
+id = "openvpn3/manager"
+name = "OpenVPN3 Manager"
+version = "2.0.0"
+plugin_api = 9
+author = "vk"
+license = "MIT"
+dependencies = ["openvpn3"]
+tags = ["vpn", "networking", "security"]
+icon = "shield"
+description = "Connect, disconnect and monitor OpenVPN 3 Linux sessions from the bar, the control center or a panel."
+
+# Plugin-level settings: one set shared by every entry, so the service reads the
+# same values the widget does.
+
+[[setting]]
+key = "poll_interval"
+type = "int"
+label_key = "settings.poll_interval.label"
+description_key = "settings.poll_interval.description"
+default = 5
+min = 1
+max = 60
+
+[[setting]]
+key = "default_profile"
+type = "string"
+label_key = "settings.default_profile.label"
+description_key = "settings.default_profile.description"
+default = ""
+
+[[setting]]
+key = "show_label"
+type = "bool"
+label_key = "settings.show_label.label"
+description_key = "settings.show_label.description"
+default = true
+
+[[setting]]
+key = "show_traffic"
+type = "bool"
+label_key = "settings.show_traffic.label"
+description_key = "settings.show_traffic.description"
+default = true
+
+[[setting]]
+key = "hide_when_disconnected"
+type = "bool"
+label_key = "settings.hide_when_disconnected.label"
+description_key = "settings.hide_when_disconnected.description"
+default = false
+
+# Profiles that ask for a username/password (or a 2FA challenge) cannot be
+# answered from a background process — start those in a terminal instead.
+[[setting]]
+key = "connect_in_terminal"
+type = "bool"
+label_key = "settings.connect_in_terminal.label"
+description_key = "settings.connect_in_terminal.description"
+default = false
+
+[[service]]
+id = "service"
+entry = "vpn_service.luau"
+
+[[widget]]
+id = "status"
+entry = "widget.luau"
+
+[[shortcut]]
+id = "toggle"
+entry = "shortcut.luau"
+
+[[panel]]
+id = "manager"
+entry = "panel.luau"
+width = 460
+height = 520
+placement = "floating"
+position = "center"
