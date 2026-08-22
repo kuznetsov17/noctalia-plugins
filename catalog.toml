@@ -9,7 +9,7 @@
 # On every row, updated_at dates the commit that first shipped that row's version.
 
 [[plugin]]
-id = "openvpn3/manager"
+id = "kuznetsov17/openvpn3-manager"
 name = "OpenVPN3 Manager"
 version = "2.0.0"
 updated_at = 1787382949

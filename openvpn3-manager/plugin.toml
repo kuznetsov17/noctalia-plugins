@@ -6,7 +6,7 @@
 # "status" and drive the service through the "command" channel, so a connection
 # can be toggled even with no widget placed on a bar.
 
-id = "openvpn3/manager"
+id = "kuznetsov17/openvpn3-manager"
 name = "OpenVPN3 Manager"
 version = "2.0.0"
 plugin_api = 9

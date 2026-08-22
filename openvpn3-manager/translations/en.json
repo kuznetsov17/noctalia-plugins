@@ -1,0 +1,63 @@
+{
+  "title": "OpenVPN3 Manager",
+  "action": {
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "refresh": "Refresh"
+  },
+  "error": {
+    "no_profile": "No OpenVPN3 profiles imported",
+    "not_installed": "openvpn3 is not installed",
+    "timeout": "Connection attempt timed out"
+  },
+  "field": {
+    "device": "Interface",
+    "ip": "VPN IP",
+    "received": "Received",
+    "sent": "Sent",
+    "state": "State"
+  },
+  "section": {
+    "details": "Session",
+    "profile": "Profile",
+    "status": "Status"
+  },
+  "settings": {
+    "connect_in_terminal": {
+      "description": "Start sessions in a terminal so username, password or 2FA prompts can be answered. Enable this for profiles that are not certificate-only.",
+      "label": "Connect in a terminal"
+    },
+    "default_profile": {
+      "description": "Profile used by the bar widget and the control-center toggle. Empty means the first imported profile.",
+      "label": "Default profile"
+    },
+    "hide_when_disconnected": {
+      "description": "Remove the bar widget while no VPN session is active",
+      "label": "Hide when disconnected"
+    },
+    "poll_interval": {
+      "description": "How often the session manager is polled, in seconds",
+      "label": "Refresh interval"
+    },
+    "show_label": {
+      "description": "Show the active profile name next to the bar glyph",
+      "label": "Show profile name"
+    },
+    "show_traffic": {
+      "description": "Include the session byte counters in the bar tooltip",
+      "label": "Show traffic"
+    }
+  },
+  "shortcut": {
+    "label": "VPN"
+  },
+  "state": {
+    "connected": "Connected",
+    "connecting": "Connecting…",
+    "disconnected": "Not connected"
+  },
+  "tooltip": {
+    "connected": "Connected to {profile}",
+    "disconnected": "Not connected — click to connect"
+  }
+}
